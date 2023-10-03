@@ -1,0 +1,287 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css**/
+
+html {
+	position: relative;
+}
+
+body {
+	max-width: 1140px;
+	margin: auto;
+	font-family: "Work Sans";
+	font-size: 14px;
+	background-color: #fffef8;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+}
+
+header h1 span {
+	text-transform: uppercase;
+	padding-top: 3px;
+}
+
+footer {
+	background-color: white;
+	padding: 40px;
+	padding-right: 120px;
+	margin-top: 45px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+}
+
+footer nav li {
+	font-size: 14px;
+}
+
+section {
+	margin: 50px 0;
+}
+
+h1 {
+	display: flex;
+	flex-direction: column;
+	font-family: "Syne";
+	font-size: 22px;
+	font-weight: 800;
+	color: #b1663c;
+}
+
+h1 > span {
+	font-family: "Work Sans";
+	font-size: 10px;
+	letter-spacing: 0.1em;
+}
+
+h2 {
+	font-family: "Syne";
+	font-weight: 700;
+	font-size: 30px;
+	color: #1d6154;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+	gap: 40px;
+}
+
+nav li {
+	font-size: 16px;
+}
+
+nav li:hover,
+nav li:hover a {
+	color: #b1663c;
+}
+
+nav a {
+	color: black;
+	text-decoration: none;
+}
+
+nav a.active {
+	font-weight: bold;
+}
+
+nav .instagram {
+	width: 22px;
+	height: 22px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+	font-size: 14px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding-left: 15px;
+	padding-right: 15px;
+	box-sizing: border-box;
+	height: 50px;
+}
+
+input[type="submit"],
+.submit-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Syne";
+	font-weight: 700;
+	color: white;
+	background-color: #1d6154;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
+	height: 36px;
+	text-decoration: none;
+	border: none;
+}
+
+textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.basic-form {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+.basic-form .error-message {
+	padding: 40px 0 10px 0;
+	color: #b1663c;
+	font-weight: bold;
+	text-align: center;
+}
+
+.basic-form label {
+	margin: 40px 0 8px 0;
+}
+
+.basic-form input[type="submit"] {
+	margin: 40px auto 0px auto;
+}
