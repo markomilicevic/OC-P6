@@ -38,6 +38,45 @@
 	padding-top: 60px;
 }
 
+#portfolio .actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	margin-bottom: 50px;
+}
+
+/* Begin filters */
+
+.filters {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	margin-bottom: 10px;
+	list-style-type: none;
+}
+
+.filters a {
+	display: inline-block;
+	border-radius: 60px;
+	padding: 10px 22px 10px 22px;
+	text-decoration: none;
+	border: 1px solid #1d6154;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.filters a.active {
+	color: white;
+	background-color: #1d6154;
+}
+
+.filters a.inactive {
+	color: #1d6154;
+}
+
+/* End filters */
+
 .gallery {
 	box-sizing: border-box;
 	display: grid;
