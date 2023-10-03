@@ -150,29 +150,104 @@ function replaceWorks(works, filteringByCategoryId) {
 	}
 }
 
+/**
+ * Switch to Edit mode
+ */
+function switchToEditMode() {
+	const headerElement = document.querySelector("header");
+
+	// Show Edit mode header
+	const editModeHeaderElement = document.createElement("p");
+	editModeHeaderElement.className = "edit-mode-header";
+	editModeHeaderElement.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> <span>Mode édition</span>'; // TODO: Use i18n here
+	headerElement.prepend(editModeHeaderElement);
+	headerElement.classList.add("edit-mode-header-visible");
+
+	// Transform the `login` header link to a logout link
+	const logoutLinkElement = headerElement.querySelector(".login-logout a");
+	logoutLinkElement.href = "#";
+	logoutLinkElement.innerText = "logout";
+	logoutLinkElement.addEventListener("click", (event) => {
+		event.preventDefault(); // Prevent default `<a href="#">` behaviour
+		// Do logout and reload the page
+		logoutUser();
+	});
+
+	// Allow edit Works
+	const worksActionElement = document.querySelector(".actions");
+	const editWorksElement = document.createElement("a");
+	editWorksElement.href = "#";
+	editWorksElement.className = "edit-works";
+	editWorksElement.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> <span>modifier</span>'; // TODO: Use i18n here
+	editWorksElement.addEventListener("click", (event) => {
+		event.preventDefault(); // Prevent default `<a href="#">` behaviour
+		console.log('Edit Works');
+	});
+	worksActionElement.append(editWorksElement);
+
+	// Remove definitively the categories filters
+	const filtersElement = document.querySelector(".filters");
+	filtersElement.remove();
+}
+
+/**
+ * Logout the current user and redirect to the Home
+ */
+function logoutUser() {
+	// Remove the Credentials from LocalStorage
+	window.localStorage.removeItem(config.CREDENTIALS_LOCAL_STORAGE_KEY);
+
+	// Last reference to Credentials
+	state.credentials = null;
+
+	// Redirect to the Home
+	redirectToHome();
+}
+
+/**
+ * Redirect the current user to the Home
+ */
+function redirectToHome() {
+	window.location.href = "./";
+}
+
 // Top level async function created to catch: "Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules"
 (async function () {
 	try {
+		const serializedCredentials = window.localStorage.getItem(config.CREDENTIALS_LOCAL_STORAGE_KEY);
+		if (serializedCredentials !== null) {
+			state.credentials = JSON.parse(serializedCredentials);
+
+			// User logged: Switch to edit mode
+			switchToEditMode();
+		}
+
 		// Fetch all works
 		state.works = await getWorksFromAPI();
 
-		// Extract all categories from all works
-		// `GET /categories` is not used here because this endpoint return all available Categories including Categories without attached Works
-		state.worksCategories = getCategoriesFromWorks(state.works);
+		if (state.credentials === null) {
+			// Show the filters only if the user is NOT logged
 
-		// Show all filters
-		replaceCategoriesFilters(state.worksCategories);
-		selectCurrentCategoriesFilter(state.filteringByCategoryId);
-		bindCategoriesFilters((selectedCategoryID) => {
-			// Category filtering changed
-			state.filteringByCategoryId = selectedCategoryID;
+			// Extract all categories from all works
+			// `GET /categories` is not used here because this endpoint return all available Categories including Categories without attached Works
+			state.worksCategories = getCategoriesFromWorks(state.works);
+
+			// Show all filters
+			replaceCategoriesFilters(state.worksCategories);
 			selectCurrentCategoriesFilter(state.filteringByCategoryId);
-			// Update all works
-			replaceWorks(state.works, state.filteringByCategoryId);
-		});
+			bindCategoriesFilters((selectedCategoryID) => {
+				// Category filtering changed
+				state.filteringByCategoryId = selectedCategoryID;
+				selectCurrentCategoriesFilter(state.filteringByCategoryId);
+				// Update all works
+				replaceWorks(state.works, state.filteringByCategoryId);
+			});
+		}
+
 		// Show all works
 		replaceWorks(state.works, state.filteringByCategoryId);
 	} catch (err) {
+		showErrorGrowl("Navré, une erreur est survenue, merci de recharger la page dans quelques instants"); // TODO: Use i18n here
 		console.log(`An error occurred in home: ${err.message}`);
 	}
 })();

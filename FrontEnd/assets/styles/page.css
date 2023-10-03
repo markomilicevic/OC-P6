@@ -285,3 +285,70 @@ textarea {
 .basic-form input[type="submit"] {
 	margin: 40px auto 0px auto;
 }
+
+/* Begin page loader component */
+
+.page-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: white;
+	text-shadow: 1px 1px 2px black;
+	font-size: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* End page loader component */
+
+/* Begin growl component */
+
+.growl {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	background-color: black;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+	color: white;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation-name: growl-appearing;
+	animation-duration: 5000ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+@keyframes growl-appearing {
+	0% {
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.growl-success {
+	background-color: #1d6154;
+}
+
+.growl-error {
+	background-color: #b1663c;
+}
+
+/* End growl component */
