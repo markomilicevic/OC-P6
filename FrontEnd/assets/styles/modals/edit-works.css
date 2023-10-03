@@ -1,0 +1,41 @@
+.modal-main .scrollable {
+	overflow-y: auto;
+	height: 362px;
+	width: 440px;
+}
+
+.modal-main .works {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 25px 8px;
+}
+
+.modal-main .works.no-project {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-main .works .work {
+	display: flex;
+	width: 78px;
+	height: 104px;
+	position: relative;
+}
+
+.modal-main .work img {
+	width: 78px;
+	height: 104px;
+	object-fit: cover;
+}
+
+.modal-main .work .delete-icon {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	padding: 4px;
+	margin: 6px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+}

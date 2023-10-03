@@ -117,6 +117,13 @@ header.edit-mode-header-visible {
 	margin-top: 40px;
 }
 
+.gallery.no-project {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
 .gallery img {
 	width: 302px;
 	height: 407px;

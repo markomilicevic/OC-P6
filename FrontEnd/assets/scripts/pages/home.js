@@ -148,6 +148,15 @@ function replaceWorks(works, filteringByCategoryId) {
 
 		galleryElement.appendChild(figureElement);
 	}
+
+	if (!filteredWorks.length) {
+		// Nothing to show
+		galleryElement.classList.add("no-project");
+		galleryElement.innerHTML = "Aucun projet"; // TODO: Use i18n here
+	} else {
+		// In case when it's the first Work added
+		galleryElement.classList.remove("no-project");
+	}
 }
 
 /**
@@ -181,7 +190,7 @@ function switchToEditMode() {
 	editWorksElement.innerHTML = '<i class="fa-regular fa-pen-to-square"></i> <span>modifier</span>'; // TODO: Use i18n here
 	editWorksElement.addEventListener("click", (event) => {
 		event.preventDefault(); // Prevent default `<a href="#">` behaviour
-		console.log('Edit Works');
+		showEditWorksModal();
 	});
 	worksActionElement.append(editWorksElement);
 
