@@ -1,3 +1,25 @@
+header .edit-mode-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	gap: 10px;
+	height: 60px;
+	background-color: black;
+	color: white;
+	align-items: center;
+	justify-content: center;
+}
+
+header .edit-mode-header span {
+	font-size: 16px;
+}
+
+header.edit-mode-header-visible {
+	padding-top: 48px;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -44,6 +66,15 @@
 	justify-content: center;
 	gap: 30px;
 	margin-bottom: 50px;
+}
+
+#portfolio .edit-works {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: black;
+	text-decoration: none;
 }
 
 /* Begin filters */
