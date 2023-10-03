@@ -1,0 +1,81 @@
+.modal-main .add-work {
+	margin: 0;
+}
+
+.modal-main .add-work .image-container,
+.modal-main .add-work input[type="file"] {
+	display: flex;
+	width: 100%;
+	height: 165px;
+}
+
+.modal-main .add-work .image-container {
+	position: relative;
+}
+
+.modal-main .add-work .image-constraints,
+.modal-main .add-work .image-preview,
+.modal-main .add-work input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.modal-main .add-work .image-constraints {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+}
+
+.modal-main .add-work .image-constraints,
+.modal-main .image-preview {
+	border-radius: 3px;
+	background: #e8f1f6;
+}
+
+.modal-main .add-work .image-icon {
+	font-size: 75px;
+	color: #b9c5cc;
+}
+
+.modal-main .add-work .image-button {
+	display: flex;
+	padding: 10px 33px 10px 33px;
+	border-radius: 50px;
+	background: #cbd6dc;
+	color: #306685;
+	font-size: 14px;
+}
+
+.modal-main .add-work .image-type {
+	color: #444444;
+	font-size: 10px;
+}
+
+.modal-main .image-preview {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-main .image-preview img {
+	max-height: 165px;
+	max-width: 420px;
+}
+
+.modal-main .add-work input[type="file"] {
+	opacity: 0;
+	cursor: pointer;
+}
+
+.modal-main .constraints-visible .image-preview {
+	display: none;
+}
+
+.modal-main .preview-visible .image-constraints {
+	display: none;
+}

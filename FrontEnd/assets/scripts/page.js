@@ -7,6 +7,12 @@ const config = {
 	API_BASE_URL: "http://localhost:5678",
 	// Hard-coded default filtering Category's Id
 	DEFAULT_ALL_CATEGORY_ID: -1,
+	// The accepted image file extensions (Array<string>)
+	UPLOAD_ACCEPTED_FILE_EXTENSIONS: [".png", ".jpg", ".jpeg"],
+	// The max image file size (in bytes)
+	UPLOAD_MAX_FILE_SIZE_IN_BYTES: 4 * 1024 * 1024,
+	// The max image file size label (string)
+	UPLOAD_MAX_FILE_SIZE_LABEL: "4mo",
 };
 
 // Global state
@@ -19,6 +25,8 @@ const state = {
 	worksCategories: [],
 	// Current category's Id to use for filtering (number or -1 for no filtering)
 	filteringByCategoryId: config.DEFAULT_ALL_CATEGORY_ID,
+	// List of all Categories including Categories without Works (Array<Category>)
+	categories: [],
 };
 
 /**

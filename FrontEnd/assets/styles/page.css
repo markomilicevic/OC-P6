@@ -240,6 +240,26 @@ select {
 	height: 50px;
 }
 
+.custom-select {
+	position: relative;
+}
+
+.custom-select .select-arrow {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: #6c6c6c;
+	cursor: pointer;
+}
+
+.custom-select select {
+	appearance: none;
+	width: 100%;
+	cursor: pointer;
+	position: absolute;
+	background-color: transparent;
+}
+
 input[type="submit"],
 .submit-button {
 	display: flex;
@@ -256,6 +276,11 @@ input[type="submit"],
 	height: 36px;
 	text-decoration: none;
 	border: none;
+}
+
+.disabled-button {
+	background-color: #a7a7a7;
+	pointer-events: none;
 }
 
 textarea {
