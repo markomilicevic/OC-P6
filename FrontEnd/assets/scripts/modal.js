@@ -97,3 +97,17 @@ function showModal({ modalTitle, onModalShowed, onModalBackClick, modalFooterBut
 	onModalShowed(modalMainElement);
 }
 
+/**
+ * Change the modal's footer button status
+ *
+ * @param {boolean} isEnabled New button's status
+ */
+function changeModalFooterButtonStatus(isEnabled) {
+	const submitButtonElement = document.querySelector(".modal-footer .submit-button");
+
+	if (isEnabled) {
+		submitButtonElement.classList.remove("disabled-button");
+	} else {
+		submitButtonElement.classList.add("disabled-button");
+	}
+}

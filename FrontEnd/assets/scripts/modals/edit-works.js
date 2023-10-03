@@ -105,7 +105,8 @@ function showEditWorksModal() {
 		modalFooterButtonEnabled: true,
 		modalFooterButtonLabel: "Ajouter une photo", // TODO: Use i18n here
 		onModalFooterButtonClicked: () => {
-			console.log('Add Work');
+			// Switch to Add Work modal
+			showAddWorkModal();
 		},
 	});
 }
