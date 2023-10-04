@@ -41,7 +41,6 @@ function showEditWorksModal() {
 
 				const figureElement = document.createElement("figure");
 				figureElement.className = "work";
-				figureElement.dataset.workId = work.id;
 
 				const imgElement = document.createElement("img");
 				imgElement.alt = work.title;
@@ -57,7 +56,7 @@ function showEditWorksModal() {
 					event.preventDefault(); // Prevent default `<a href="#">` behaviour
 
 					try {
-						const workIdToDelete = parseInt(event.target.closest(".work").dataset.workId, 10);
+						const workIdToDelete = work.id;
 
 						// Delete Work using API
 						await deleteWorkUsingAPI(workIdToDelete);
