@@ -122,6 +122,8 @@ function selectCurrentCategoriesFilter(filteringByCategoryId) {
 function replaceWorks(works, filteringByCategoryId) {
 	const galleryElement = document.querySelector(".gallery");
 
+	galleryElement.classList.remove('loading-projects'); // Remove first loader
+
 	// Filter by category (client-side)
 	let filteredWorks = [...works];
 	if (filteringByCategoryId !== config.DEFAULT_ALL_CATEGORY_ID) {
