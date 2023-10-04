@@ -61,13 +61,10 @@ async function loadCategories() {
 	if (!state.categories.length) {
 		// Fetch only once
 		try {
-			showPageLoader();
 			state.categories = await getCategoriesFromAPI();
 		} catch (err) {
 			showErrorGrowl("Une erreur est survenue lors de la récuparation des categories, veuillez réessayer"); // TODO: Use i18n here
 			console.error(`An error occurred while fetch Categories: ${err.message}`);
-		} finally {
-			hidePageLoader();
 		}
 	}
 
@@ -99,8 +96,6 @@ function showAddWorkModal() {
 		}
 
 		try {
-			showPageLoader();
-
 			const imageInput = document.querySelector("input#image");
 			const titleInput = document.querySelector("input#title");
 			const categorySelect = document.querySelector("select#category");
@@ -120,8 +115,6 @@ function showAddWorkModal() {
 		} catch (err) {
 			showErrorGrowl("Une erreur est survenue lors de la création du projet, veuillez réessayer"); // TODO: Use i18n here
 			console.error(`An error occurred while creating the Work: ${err.message}`);
-		} finally {
-			hidePageLoader();
 		}
 	};
 

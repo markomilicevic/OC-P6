@@ -79,8 +79,6 @@ function bindLoginForm() {
 		event.preventDefault(); // Prevent the default <form> submition behaviour
 
 		try {
-			showPageLoader();
-
 			removePreviousLoginErrorMessage();
 
 			const emailElement = formElement.querySelector('[name="email"]');
@@ -99,8 +97,6 @@ function bindLoginForm() {
 			} else {
 				showLoginErrorMessage("Une erreur est survenue, merci de vérifier votre connectivité puis de réessayer");
 			}
-		} finally {
-			hidePageLoader();
 		}
 	});
 }

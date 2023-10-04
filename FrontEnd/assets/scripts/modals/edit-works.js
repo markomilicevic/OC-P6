@@ -57,8 +57,6 @@ function showEditWorksModal() {
 					event.preventDefault(); // Prevent default `<a href="#">` behaviour
 
 					try {
-						showPageLoader();
-
 						const workIdToDelete = parseInt(event.target.closest(".work").dataset.workId, 10);
 
 						// Delete Work using API
@@ -83,8 +81,6 @@ function showEditWorksModal() {
 					} catch (err) {
 						showErrorGrowl("Une erreur est survenue lors de la suppression du projet, veuillez réessayer"); // TODO: Use i18n here
 						console.error(`An error occurred while deleting an Work: ${err.message}`);
-					} finally {
-						hidePageLoader();
 					}
 				});
 				figureElement.appendChild(deleteElement);

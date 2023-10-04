@@ -30,31 +30,6 @@ const state = {
 };
 
 /**
- * Show a page loader that is displayed over the entire page
- * This page loader is recommended to be used during an HTTP query
- */
-function showPageLoader() {
-	const bodyElement = document.querySelector("body");
-
-	const pageLoaderElement = document.createElement("div");
-	pageLoaderElement.className = "page-loader";
-	pageLoaderElement.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i>`;
-
-	bodyElement.appendChild(pageLoaderElement);
-}
-
-/**
- * Hide a page loader
- * This page loader is recommended to be used during an HTTP query
- */
-function hidePageLoader() {
-	const pageLoaderElement = document.querySelector(".page-loader");
-	if (pageLoaderElement !== null) {
-		pageLoaderElement.remove();
-	}
-}
-
-/**
  * Show a success Growl during few seconds
  *
  * @param {string} message Message to show
