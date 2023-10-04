@@ -24,7 +24,8 @@ async function getCredentialsFromAPI(email, password) {
 		}),
 	}).then((response) => {
 		switch (response.status) {
-			case 404:
+			case 404: // User Not Found (unknown email)
+			case 401: // Not Authorized (email is valid but not the password)
 				throw new WrongCredentialsError();
 			case 200:
 				return response.json();
