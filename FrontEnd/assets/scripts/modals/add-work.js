@@ -7,7 +7,7 @@
  * @returns {Promise<Work>} New created Work
  */
 async function createWorkUsingAPI(image, title, category) {
-	if (!image || !title || !category) {
+	if (!image || typeof(image) !== 'object' || !title || !category) {
 		throw new Error("Invalid arguments");
 	}
 
