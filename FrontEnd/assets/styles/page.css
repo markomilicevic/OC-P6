@@ -311,24 +311,6 @@ textarea {
 	margin: 40px auto 0px auto;
 }
 
-/* Begin page loader component */
-
-.page-loader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	color: white;
-	text-shadow: 1px 1px 2px black;
-	font-size: 100px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-/* End page loader component */
-
 /* Begin growl component */
 
 .growl {

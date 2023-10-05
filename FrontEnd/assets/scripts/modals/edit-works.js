@@ -41,7 +41,6 @@ function showEditWorksModal() {
 
 				const figureElement = document.createElement("figure");
 				figureElement.className = "work";
-				figureElement.dataset.workId = work.id;
 
 				const imgElement = document.createElement("img");
 				imgElement.alt = work.title;
@@ -57,9 +56,7 @@ function showEditWorksModal() {
 					event.preventDefault(); // Prevent default `<a href="#">` behaviour
 
 					try {
-						showPageLoader();
-
-						const workIdToDelete = parseInt(event.target.closest(".work").dataset.workId, 10);
+						const workIdToDelete = work.id;
 
 						// Delete Work using API
 						await deleteWorkUsingAPI(workIdToDelete);
@@ -83,8 +80,6 @@ function showEditWorksModal() {
 					} catch (err) {
 						showErrorGrowl("Une erreur est survenue lors de la suppression du projet, veuillez réessayer"); // TODO: Use i18n here
 						console.error(`An error occurred while deleting an Work: ${err.message}`);
-					} finally {
-						hidePageLoader();
 					}
 				});
 				figureElement.appendChild(deleteElement);

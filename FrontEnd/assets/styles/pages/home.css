@@ -117,6 +117,7 @@ header.edit-mode-header-visible {
 	margin-top: 40px;
 }
 
+.gallery.loading-projects,
 .gallery.no-project {
 	display: flex;
 	justify-content: center;
