@@ -222,6 +222,18 @@ function redirectToHome() {
 	window.location.href = "./";
 }
 
+/**
+ * Out of the OC-P6 project but I received a feedback from my Evaluator:
+ * Block Contact form submit in order to prevent getting an error (HTTP ERROR 405)
+ */
+function blockContactFormSubmit() {
+	const contactFormElement = document.querySelector('#contact form');
+	contactFormElement.addEventListener('submit', (event) => {
+		event.preventDefault();
+		showErrorGrowl('Contact form is not implemented');
+	});
+}
+
 // Top level async function created to catch: "Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules"
 (async function () {
 	try {
@@ -257,6 +269,10 @@ function redirectToHome() {
 
 		// Show all works
 		replaceWorks(state.works, state.filteringByCategoryId);
+
+		// Out of the OC-P6 project but I received a feedback from my Evaluator:
+		// Block Contact form submit in order to prevent getting an error (HTTP ERROR 405)
+		blockContactFormSubmit();
 	} catch (err) {
 		showErrorGrowl("Navré, une erreur est survenue, merci de recharger la page dans quelques instants"); // TODO: Use i18n here
 		console.log(`An error occurred in home: ${err.message}`);
